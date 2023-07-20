@@ -60,11 +60,11 @@ function Body() {
 
   return (
     <div id="editor" className="p-8 flex flex-col items-center pt-0 gap-8">
-      <p className="font-medium text-4xl">Resume Builder</p>
-      <div className="w-full flex justify-center items-center gap-10">
+      <h1 className="font-medium text-4xl">Resume Builder</h1>
+      <div className="w-full md:flex grid justify-center items-center gap-10">
         <div className="flex flex-col justify-center">
-          <h1 className="text-2xl font-bold font-mono">Set your HighLighting Colours</h1>
-          <div className="flex gap-5 p-5">
+          <h3 className="md:text-2xl text-lg font-bold font-mono">Set your HighLighting Colours</h3>
+          <div className="md:flex md:gap-5 grid grid-cols-2 md:p-5 space-y-3 justify-center items-center">
           {colors.map((item) => (
             <span
               key={item}
