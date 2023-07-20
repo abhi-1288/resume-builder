@@ -7,7 +7,7 @@ import Resume from "../Resume/Resume";
 import Button from '@mui/material/Button';
 
 function Body() {
-  const colors = ["#239ce2", "#48bb78", "#0bc5ea", "#a0aec0", "#ed8936", "#FF0000"];
+  const colors = ["#239ce2", "#48bb78", "#0bc5ea", "#a0aec0", "#ed8936", "#FF0000", "#FFFF00", "#800080", "#FFD700", "#000000"];
   const sections = {
     basicInfo: "Basic Info",
     workExp: "Work Experience",
@@ -64,32 +64,31 @@ function Body() {
       <div className="w-full md:flex grid justify-center items-center gap-10">
         <div className="flex flex-col justify-center">
           <h3 className="md:text-2xl text-lg font-bold font-mono">Set your HighLighting Colours</h3>
-          <div className="md:flex md:gap-5 grid grid-cols-2 md:p-5 space-y-3 justify-center items-center">
-          {colors.map((item) => (
-            <span
-              key={item}
-              style={{ backgroundColor: item }}
-              className={`h-8 w-8 bg-blue-500 rounded-full ${
-                activeColor === item ? "border-2 border-black" : ""
-              }`}
-              onClick={() => setActiveColor(item)}
-            />
-          ))}
+          <div className="md:flex md:gap-5 grid grid-cols-2 md:p-5 space-y-3 md:justify-center items-center p-2">
+            {colors.map((item) => (
+              <span
+                key={item}
+                style={{ backgroundColor: item }}
+                className={`h-8 w-8 bg-blue-500 rounded-full ${activeColor === item ? "border-4 border-black" : ""
+                  }`}
+                onClick={() => setActiveColor(item)}
+              />
+            ))}
+          </div>
         </div>
+        <div className="flex justify-center">
+
+          <ReactToPrint
+            trigger={() => {
+              return (
+                <Button variant="contained" sx={{ width: "fit-content" }}>
+                  Print Resume
+                </Button>
+              );
+            }}
+            content={() => resumeRef.current}
+          />
         </div>
-        <Button variant="contained">
-        <ReactToPrint
-          trigger={() => {
-            return (
-              <button>
-               {/* Download <ArrowDown /> */}
-               Print Resume
-              </button>
-            );
-          }}
-          content={() => resumeRef.current}
-        />
-        </Button>
       </div>
       <div className="flex flex-col w-full gap-8">
         <Editor
