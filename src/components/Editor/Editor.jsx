@@ -616,7 +616,7 @@ function Editor(props) {
           onChange={(event) => setSectionTitle(event.target.value)}
         />
 
-        <div className={styles.chip}>
+        <div className={styles.chips}>
           {activeInformation?.details
             ? activeInformation?.details?.map((item, index) => (
                 <div

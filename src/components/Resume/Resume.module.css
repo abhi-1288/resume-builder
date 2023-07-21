@@ -13,6 +13,14 @@
   gap: 30px;
   padding: 30px;
 }
+@media screen and (max-width: 600px){
+  .container {
+    min-width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 4px rgb(0, 0, 0, 0.4);
+  }
+}
 
 .header {
   display: flex;

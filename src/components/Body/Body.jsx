@@ -1,12 +1,12 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import ReactToPrint from "react-to-print";
-import { ArrowDown } from "react-feather";
 
+import Base from "../myComponents/Base"
 import Editor from "../Editor/Editor";
 import Resume from "../Resume/Resume";
 import Button from '@mui/material/Button';
 
-function Body() {
+function Body({ showResume, setShowResume }) {
   const colors = ["#239ce2", "#48bb78", "#0bc5ea", "#a0aec0", "#ed8936", "#FF0000", "#FFFF00", "#800080", "#FFD700", "#000000"];
   const sections = {
     basicInfo: "Basic Info",
@@ -59,12 +59,12 @@ function Body() {
   });
 
   return (
-    <div id="editor" className="p-8 flex flex-col items-center pt-0 gap-8">
+    <div id="editor" className="md:p-8 p-2 flex flex-col items-center pt-0 gap-8">
       <h1 className="font-medium text-4xl">Resume Builder</h1>
       <div className="w-full md:flex grid justify-center items-center gap-10">
         <div className="flex flex-col justify-center">
-          <h3 className="md:text-2xl text-lg font-bold font-mono">Set your HighLighting Colours</h3>
-          <div className="md:flex md:gap-5 grid grid-cols-2 md:p-5 space-y-3 md:justify-center items-center p-2">
+          <h3 className="md:text-2xl text-center text-lg font-bold font-mono">Set your HighLighting Colours</h3>
+          <div className="md:flex md:gap-5 grid grid-cols-2 md:p-5 space-y-3 ml-10 justify-center items-center p-2">
             {colors.map((item) => (
               <span
                 key={item}
@@ -76,19 +76,6 @@ function Body() {
             ))}
           </div>
         </div>
-        <div className="flex justify-center">
-
-          <ReactToPrint
-            trigger={() => {
-              return (
-                <Button variant="contained" sx={{ width: "fit-content" }}>
-                  Print Resume
-                </Button>
-              );
-            }}
-            content={() => resumeRef.current}
-          />
-        </div>
       </div>
       <div className="flex flex-col w-full gap-8">
         <Editor
@@ -96,12 +83,16 @@ function Body() {
           information={resumeInformation}
           setInformation={setResumeInformation}
         />
-        <Resume
-          ref={resumeRef}
+
+        <Base 
+          resumeRef={resumeRef} 
           sections={sections}
           information={resumeInformation}
-          activeColor={activeColor}
+          activeColor={activeColor} 
+          showResume={showResume}
+          setShowResume={setShowResume}
         />
+
       </div>
     </div>
   );
