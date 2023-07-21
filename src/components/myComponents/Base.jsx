@@ -64,6 +64,7 @@ const Base = (props) => {
                 </div>
             </div>
 
+            <h1 className="text-center text-lg md:text-xl italic font-mono font-semibold p-2 m:p-0">The actual print and view resume on mobile may differ because of actual width of a mobile display</h1>
 
             {showResume && (
                 <Resume
