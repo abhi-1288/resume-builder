@@ -1,4 +1,4 @@
-import * as React from 'react';
+/* eslint-disable no-unused-vars */
 import TextField from '@mui/material/TextField';
 
 export default function MyInput(props) {

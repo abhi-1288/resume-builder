@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable no-unsafe-optional-chaining */
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import { X } from "react-feather";
 
 import InputControl from "../InputControl/InputControl";
@@ -568,7 +570,7 @@ function Editor(props) {
 
   useEffect(() => {
     setActiveInformation(information[sections[activeSectionKey]]);
-  }, [information]);
+  }, [activeSectionKey]);
 
   useEffect(() => {
     const details = activeInformation?.details;

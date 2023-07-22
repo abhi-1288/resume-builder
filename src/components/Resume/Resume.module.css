@@ -12,6 +12,7 @@
   flex-direction: column;
   gap: 30px;
   padding: 30px;
+  position: relative;
 }
 @media screen and (max-width: 600px){
   .container {

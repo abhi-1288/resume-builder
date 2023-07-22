@@ -1,4 +1,8 @@
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+/* eslint-disable react/display-name */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/prop-types */
+import { forwardRef, useEffect, useRef, useState } from "react";
 import {
   AtSign,
   Calendar,
@@ -71,15 +75,15 @@ const Resume = forwardRef((props, ref) => {
               )}
               {item.startDate && item.endDate ? (
                 <div className={styles.date}>
-                  <Calendar /> {getFormattedDate(item.startDate)}-
-                  {getFormattedDate(item.endDate)}
+                  <Calendar /> ({getFormattedDate(item.startDate)}) -
+                  ({getFormattedDate(item.endDate)})
                 </div>
               ) : (
                 <div />
               )}
               {item.location ? (
                 <p className={styles.date}>
-                  <MapPin /> Remote
+                  <MapPin /> {item.location}
                 </p>
               ) : (
                 <span />
@@ -284,7 +288,7 @@ const Resume = forwardRef((props, ref) => {
       [sections.project, sections.education, sections.summary],
       [sections.workExp, sections.achievement, sections.other],
     ]);
-  }, []);
+  }, [sections.achievement, sections.education, sections.other, sections.project, sections.summary, sections.workExp]);
 
   useEffect(() => {
     swapSourceTarget(source, target);
@@ -306,7 +310,7 @@ const Resume = forwardRef((props, ref) => {
             <img
               src={props.profileImage}
               alt="Profile"
-              className="right-24 absolute rounded-full w-32 h-32 object-cover"
+              className="absolute right-10 rounded-full md:w-32 md:h-32 w-16 h-16 object-cover"
             />
           )}
           <p className={styles.subHeading}>{info.basicInfo?.detail?.title}</p>

@@ -1,5 +1,4 @@
-import React from "react";
-
+/* eslint-disable react/prop-types */
 import styles from "./InputControl.module.css";
 
 function InputControl({ label, type, ...props }) {

@@ -1,10 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useRef, useState } from "react";
-import ReactToPrint from "react-to-print";
 
 import Base from "../myComponents/Base"
 import Editor from "../Editor/Editor";
-import Resume from "../Resume/Resume";
-import Button from '@mui/material/Button';
 
 function Body({ showResume, setShowResume }) {
   const colors = ["#239ce2", "#48bb78", "#0bc5ea", "#a0aec0", "#ed8936", "#FF0000", "#FFFF00", "#800080", "#FFD700", "#000000"];
